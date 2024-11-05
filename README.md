@@ -26,3 +26,54 @@
     <script src="script.js"></script>
 </body>
 </html>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #b22222; /* สีแดงเข้ม */
+    color: #ffd700; /* สีทอง */
+    text-align: center;
+}
+
+header {
+    background-color: #8b0000; /* สีแดงเข้ม */
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.main {
+    margin: 20px;
+}
+
+.game-board {
+    border: 2px solid #ffd700; /* ขอบทอง */
+    padding: 20px;
+    background-color: #fff8dc; /* สีครีม */
+}
+
+button {
+    background-color: #ffd700; /* สีทอง */
+    color: #000; /* สีดำ */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ffcc00; /* สีทองเข้มเมื่อhover */
+}
+
+footer {
+    margin-top: 20px;
+}
+document.getElementById('roll-dice').addEventListener('click', function() {
+    const diceValue = Math.floor(Math.random() * 6) + 1; // สุ่มเลข 1-6
+    document.getElementById('dice-result').innerText = `คุณทอยได้: ${diceValue}`;
+    
+    // อัพเดตเงินของผู้เล่น (สมมุติว่าเพิ่ม 100 บาทต่อการทอย)
+    let playerMoney = parseInt(document.getElementById('player-money').innerText);
+    playerMoney += 100; // เพิ่มเงิน
+    document.getElementById('player-money').innerText = playerMoney;
+});
